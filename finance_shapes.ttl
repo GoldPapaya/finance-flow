@@ -1,0 +1,29 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://financeflow.example/shapes#> .
+@prefix ft: <http://financeflow.example/ontology#> .
+
+ex:TransactionShape
+    a sh:NodeShape ;
+    sh:targetClass ft:Transaction ;
+    sh:closed false ;  # Allows for other properties not defined here
+    rdfs:label "Transaction constraints." ;
+    
+    # --- Rule 1: Must have at least one ft:payer ---
+    sh:property [
+        sh:path ft:payer ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Every transaction must have at least one Payer (ft:payer)." ;
+    ] ;
+
+    # --- Rule 2: Must have at least one ft:payee ---
+    sh:property [
+        sh:path ft:payee ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Every transaction must have at least one Payee (ft:payee)." ;
+    ] .

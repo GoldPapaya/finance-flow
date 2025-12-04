@@ -1,0 +1,46 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ft: <http://financeflow.example/ontology#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ft:txn-34bc6dfe a ft:Transaction ;
+    ft:amount ft:amount-70835e .
+
+ft:txn-d4e6b1cd a ft:Transaction ;
+    ft:amount ft:amount-6d26d1 ;
+    ft:payer ft:person-becky-3f3aa5,
+        ft:person-jacob-4b3c7b,
+        ft:person-joseph-b9f2d5 .
+
+ft:txn-f241713b a ft:Transaction ;
+    ft:amount ft:amount-abe5fa ;
+    ft:payee ft:person-lucas-c3f5cf ;
+    ft:payer ft:person-sarah-d84638 ;
+    ft:transactionDate "2025-11-21"^^xsd:date .
+
+ft:amount-6d26d1 a schema1:MonetaryAmount ;
+    schema1:currency "USD"^^xsd:string ;
+    schema1:value 12.0 .
+
+ft:amount-70835e a schema1:MonetaryAmount ;
+    schema1:currency "USD"^^xsd:string ;
+    schema1:value 5.0 .
+
+ft:amount-abe5fa a schema1:MonetaryAmount ;
+    schema1:currency "USD"^^xsd:string ;
+    schema1:value 55.5 .
+
+ft:person-becky-3f3aa5 a ft:Person ;
+    foaf:name "Becky"^^xsd:string .
+
+ft:person-jacob-4b3c7b a ft:Person ;
+    foaf:name "Jacob"^^xsd:string .
+
+ft:person-joseph-b9f2d5 a ft:Person ;
+    foaf:name "Joseph"^^xsd:string .
+
+ft:person-lucas-c3f5cf a ft:Person ;
+    foaf:name "Lucas"^^xsd:string .
+
+ft:person-sarah-d84638 a ft:Person ;
+    foaf:name "Sarah"^^xsd:string .
